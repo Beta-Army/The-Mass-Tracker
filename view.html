@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>The Mass Tracker</title>
+  <link rel="icon" href="logo.png" type="image/x-icon">
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width">
+
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v1.11.0/mapbox-gl.js'></script>
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v1.11.0/mapbox-gl.css' rel='stylesheet' />
+  <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+  <style>
+    
+    .header{
+      margin-bottom: 10px;
+      position:fixed;
+      top:0em;
+    }
+    #map {
+      position: absolute;
+      width: 100vw;
+      height: 90vh;
+    }
+
+    .marker {
+      background-image: url('pointer.png');
+      background-size: cover;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      cursor: pointer;
+  }
+  .mapboxgl-popup {
+      max-width: 200px;
+      }
+
+  .mapboxgl-popup-content {
+      text-align: center;
+      font-family: 'Open Sans', sans-serif;
+  }
+  .footer
+  {
+    top:90%;
+    
+  }
+  </style>
+</head>
+
+<body>
+
+  
+
+  <header class="text-gray-500 bg-gray-900 body-font">
+    <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
+      <a class="flex title-font font-medium items-center text-white mb-4 md:mb-0">
+        <img src="logo.png" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+          stroke-width="2" class="w-16 h-16 text-white p-2 rounded-full" viewBox="0 0 24 24">
+        <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+        </svg>
+        <a href="index.html" class="ml-3 text-xl text-white font-semibold"><span>The Mass Tracker</span></a>
+      </a>
+      <nav class="md:ml-auto flex flex-wrap items-center text-base justify-center">
+        <a href="index.html" class="mr-5 hover:text-red-500">Home</a>
+        <a href="https://covidindia.org/" target="_blank" class="mr-5 hover:text-red-500">View Cases</a>
+        <a href="https://coronavirus.medium.com/relaxing-all-social-distancing-behaviors-now-is-a-huge-mistake-c03674423888"
+          target="_blank" class="mr-5 hover:text-red-500">Blog</a>
+        <a href="about.html" class="mr-5 hover:text-red-500">About Us</a>
+      </nav>
+      <button onclick=" window.open('https://www.youtube.com/watch?v=LB54oAnuQyE&feature=youtu.be','_blank')"
+        class="inline-flex items-center text-white bg-red-500 border-0 py-1 px-3 focus:outline-none hover:bg-red-600 rounded text-base mt-4 md:mt-0">Watch
+        Video
+        <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+          class="w-4 h-4 ml-1" viewBox="0 0 24 24">
+          <path d="M5 12h14M12 5l7 7-7 7"></path>
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <div id='map'>
+
+  <script>
+  
+  mapboxgl.accessToken = 'pk.eyJ1Ijoic3VoaXRhZ2Fyd2FsIiwiYSI6ImNrYm9scjJndTIyYWUyc2swY3dmMThieW0ifQ.h8yF6VGXulGAwSEQFbn3gw';
+  
+  var map = new mapboxgl.Map({
+    container: 'map',
+    style: 'mapbox://styles/suhitagarwal/ckbolwlus1sax1io0egg5m9e6',
+    center: [88.360725, 22.553784],
+    zoom: 11.31,
+  });
+  
+  var geojson = {
+    type: 'FeatureCollection',
+    features: [{
+      type: 'Feature',
+      geometry: {
+        type: 'Point',
+        coordinates: [88.304961,22.5264808]
+      },
+      properties: {
+        title: 'Number of People:    Last Updated: ',
+  
+        description: 'Alipore, Kolkata'
+      }
+    },
+    {
+      type: 'Feature',
+      geometry: {
+        type: 'Point',
+        coordinates: [88.3512287,22.5480355]
+      },
+      properties: {
+        title: 'Number of People:    Last Updated: ',
+        description: 'Camac Street'
+      }
+    },
+    {
+      type: 'Feature',
+      geometry: {
+        type: 'Point',
+        coordinates: [88.3390182,22.5187598]
+      },
+      properties: {
+        title: 'Number of People:    Last Updated: ',
+        description: 'Kalighat'
+      }
+    },
+    {
+      type: 'Feature',
+      geometry: {
+        type: 'Point',
+        coordinates: [88.3684329,22.5195553]
+      },
+      properties: {
+        title: 'Number of People:    Last Updated: ',
+        description: 'Kasba'
+      }
+    },
+    {
+      type: 'Feature',
+      geometry: {
+        type: 'Point',
+        coordinates: [88.3014314,22.5758216]
+      },
+      properties: {
+        title: 'Number of People:    Last Updated: ',
+        description: 'Kona Expressway'
+      }
+    },
+    {
+      type: 'Feature',
+      geometry: {
+        type: 'Point',
+        coordinates: [88.3530568,22.5864125]
+      },
+      properties: {
+        title: 'Number of People:    Last Updated: ',
+        description: 'New Town'
+      }
+    },
+    {
+      type: 'Feature',
+      geometry: {
+        type: 'Point',
+        coordinates: [88.3393288,22.5494677]
+      },
+      properties: {
+        title: 'Number of People:    Last Updated: ',
+        description: 'Park Street'
+      }
+    },
+    {
+      type: 'Feature',
+      geometry: {
+        type: 'Point',
+        coordinates: [88.3781617,22.6255533]
+      },
+      properties: {
+        title: 'Number of People:    Last Updated: ',
+        description: 'Rajarhat'
+      }
+    },
+    {
+      type: 'Feature',
+      geometry: {
+        type: 'Point',
+        coordinates: [88.3517175,22.5754365]
+      },
+      properties: {
+        title: 'Number of People:    Last Updated: ',
+        description: 'Salt Lake City'
+      }
+    },
+    {
+      type: 'Feature',
+      geometry: {
+        type: 'Point',
+        coordinates: [88.3506256,22.5289658]
+      },
+      properties: {
+        title: 'Number of People:   Last Updated:',
+        description: 'Sarat Bose Road'
+      }
+    },
+    {
+      type: 'Feature',
+      geometry: {
+        type: 'Point',
+        coordinates: [88.3887875,22.539492]
+      },
+      properties: {
+        title: 'Number of People:    Last Updated: ',
+        description: 'Science City'
+      }
+    },
+    {
+      type: 'Feature',
+      geometry: {
+        type: 'Point',
+        coordinates: [88.3508734,22.5932825]
+      },
+      properties: {
+        title: 'Number of People:    Last Updated: ',
+        description: 'Strand Road'
+      }
+    },
+    {
+      type: 'Feature',
+      geometry: {
+        type: 'Point',
+        coordinates: [88.3908754,22.6036572]
+      },
+      properties: {
+        title: 'Number of People:    Last Updated: ',
+        description: 'Lake Town Avenue'
+      }
+    },
+    {
+      type: 'Feature',
+      geometry: {
+        type: 'Point',
+        coordinates: [88.3776485,22.5945223]
+      },
+      properties: {
+        title: 'Number of People:    Last Updated: ',
+        description: 'Ultadanga'
+      }
+    },
+    {
+      type: 'Feature',
+      geometry: {
+        type: 'Point',
+        coordinates: [88.3482681,22.5584343]
+      },
+      properties: {
+        title: 'Number of People:',
+        description: 'JL Nehru Road'
+      }
+    }]
+  };
+  geojson.features.forEach(function(marker) {
+  
+  // create a HTML element for each feature
+  var el = document.createElement('div');
+  el.className = 'marker';
+  
+  // make a marker for each feature and add to the map
+  new mapboxgl.Marker(el)
+    .setLngLat(marker.geometry.coordinates)
+    .setPopup(new mapboxgl.Popup({ offset: 25 }) // add popups
+      .setHTML('<h3>' + marker.properties.title + '</h3><p>' + marker.properties.description + '</p>'))
+    .addTo(map);
+  });
+  
+  </script>
+  </div>
+  <footer class="text-gray-500 bg-gray-900 body-font">
+    <div class="container px-5 py-8 mx-auto flex items-center sm:flex-row flex-col">
+      <a class="flex title-font font-medium items-center md:justify-start justify-center text-white">
+        <img src="logo.png" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+          stroke-width="2" class="w-16 h-16 text-white p-2 rounded-full" viewBox="0 0 24 24">
+        <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+        </svg>
+        <span class="ml-3 text-xl">The Mass Tracker</span>
+      </a>
+      <p class="text-sm text-gray-600 sm:ml-4 sm:pl-4 sm:border-l-2 sm:border-gray-800 sm:py-2 sm:mt-0 mt-4">© 2020 The
+        Mass Tracker —
+        <a href="https://twitter.com/knyttneve" class="text-gray-500 ml-1" target="_blank"
+          rel="noopener noreferrer">@masstracker</a>
+      </p>
+      <span class="inline-flex sm:ml-auto sm:mt-0 mt-4 justify-center sm:justify-start">
+        <a class="text-gray-600">
+          <svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5"
+            viewBox="0 0 24 24">
+            <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"></path>
+          </svg>
+        </a>
+        <a class="ml-3 text-gray-600">
+          <svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5"
+            viewBox="0 0 24 24">
+            <path
+              d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z">
+            </path>
+          </svg>
+        </a>
+        <a class="ml-3 text-gray-600">
+          <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            class="w-5 h-5" viewBox="0 0 24 24">
+            <rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect>
+            <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37zm1.5-4.87h.01"></path>
+          </svg>
+        </a>
+        <a class="ml-3 text-gray-600">
+          <svg fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="0"
+            class="w-5 h-5" viewBox="0 0 24 24">
+            <path stroke="none"
+              d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"></path>
+            <circle cx="4" cy="4" r="2" stroke="none"></circle>
+          </svg>
+        </a>
+      </span>
+    </div>
+  </footer>
+
+</body>
+
+</html>
