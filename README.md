@@ -9,7 +9,7 @@
 Tracks Crowd status thus helping in socializing while maintaining social distance amidst the current pandemic. 
 ```
 
-> This project was our first attempt towards [MLH HackJaipur Hackathon](https://www.hackjaipur.com/) and my team comprised of [Suhit Agarawal](https://www.github.com/SuhitAgarwal) and [Ayush Goyal](https://github.com/aiqqia).
+> This project was our first attempt towards [MLH HackJaipur Hackathon](https://www.hackjaipur.com/) and my team comprised of [Suhit Agarwal](https://www.github.com/SuhitAgarwal) and [Ayush Goyal](https://github.com/aiqqia).
 
 ### Contents
 
@@ -39,11 +39,11 @@ We then faced a problem with how we were to create a user friendly viewing syste
 
 ## Built Using
 
-- HTML5, Tailwind CSS : Website styling done with tailwind css.
-- Mapbox GL JS : API used to show areas on the map.
-- Google Forms : To collect data since we didn't find any such quick alternative.
-- Firebase : To store contact form data.
-- Adobe Illustrator : To design the project logo.
+- **HTML5, Tailwind CSS** : Website styling done with tailwind css.
+- **Mapbox GL JS** : API used to show areas on the map.
+- **Google Forms** : To collect data since we didn't find any such quick alternative.
+- **Firebase** : To store contact form data.
+- **Adobe Illustrator** : To design the project logo.
 
 ## Acknowledgements
 
