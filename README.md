@@ -1,7 +1,9 @@
 <!-- Tried to include all things of a basic readme.md -->
 # The-Mass-Tracker
 
-![logo](logo.png)
+<p align="center">
+  <img src="logo.png" align="center" alt="Logo" width="80" height="80">
+ </p>
 
 ```sh 
 Tracks Crowd status thus helping in socializing while maintaining social distance amidst the current pandemic. 
